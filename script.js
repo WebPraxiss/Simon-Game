@@ -1,7 +1,6 @@
 let gameSeq = [];
 let userSeq = [];
 let level = 0;
-
 let gameStarted = false;
 let boxes = ['box1', 'box2', 'box3', 'box4'];
 const h3 = document.querySelector("h3");
@@ -36,6 +35,7 @@ function levelUp() {
     let randomBox = document.querySelector(`#${randomColor}`);
     gameflash(randomBox);
     gameSeq.push(randomColor);
+
     // Show the sequence to the user with a delay
     let i = 0;
     let interval = setInterval(() => {
@@ -69,6 +69,7 @@ function checkAns() {
             setTimeout(levelUp, 1000);
         }
     } else {
+        // Game Over
         h3.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press any key to start the game again.`;
         document.querySelector("body").style.backgroundColor = 'red';
         setTimeout(function () {
